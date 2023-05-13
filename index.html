@@ -21,15 +21,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Kripto</a>
-       
-        <div class="collapse navbar-collapse" id="navbarNav">
-        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav"></div>
       </div>
     </nav>
 
     <div class="container my-5">
       <h1 class="text-center">Kripto Para Borsasında Veri Analizi</h1>
-
       <div class="row mt-5">
         <div class="col-md-12">
           <p>
@@ -56,13 +54,82 @@
             mauris. Morbi euismod semper est at tempor. Vivamus vitae interdum
             arcu, a lacinia tellus. Morbi vestibulum tell
           </p>
+          <br>
+          <h2>Popüler Kripto Para Birimleri ve Web Socket</h2>
+          <br>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Last Price</th>
+              <th>24h Change</th>
+              <th>Market Cap</th>
+            </tr>
+            <tr>
+              <td>
+                <img src="./img/bitcoin-btc-logo.png" alt="" width="30px" /> BNB
+              </td>
+              <td id="btc-price"></td>
+              <td id="btc-exchange"></td>
+              <td>$520.429M</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="./img/Ethereum-ETH-icon.png" alt="" width="30px" />
+                ETH
+              </td>
+              <td id="eth-price"></td>
+              <td id="eth-exchange"></td>
+              <td>$221,830M</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="./img/Binance-coin-bnb-logo.png" alt="" width="30px" />
+                BNB
+              </td>
+              <td id="bnb-price"></td>
+              <td id="bnb-exchange"></td>
+              <td>$48,488M</td>
+            </tr>
+            <tr>
+              <td>
+                <img src="./img/6001356.png" alt="" width="30px" />
+                DOGE
+              </td>
+              <td id="doge-price"></td>
+              <td id="doge-exchange"></td>
+              <td>$10.06B</td>
+            </tr>
+          </table>
         </div>
       </div>
-
-      <hr/>
+      <br>
+      <br>
+      <pre>
+        <code>
+          const socket = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
+          let lastPrice = 0;
+          let btcPrice = document.getElementById('btc-price');
+          let btcExhange = document.getElementById('btc-exchange');
+          let btcMarketCap = document.getElementById('btc-volume');
+          let ethPrice = document.getElementById('eth-price');
+          let etcExhange = document.getElementById('eth-exchange');
+      
+          socket.onmessage = function (event) {
+              const stockObject = JSON.parse(event.data);
+              btcPrice.innerHTML = parseFloat(stockObject.p).toFixed(2);
+              btcExhange.innerHTML = '<b>+' + parseFloat(stockObject.q).toFixed(2)+ '%';
+              btcExhange.style.color = lastPrice > stockObject.q ? 'red' : 'green';
+              btcPrice.style.color = lastPrice > stockObject.p ? 'red' : 'green';
+              lastPrice = stockObject.p;
+          };
+        </code>
+      </pre>
+      <br>
+      <br>
+      <hr>
 
       <h2>Başlık 1</h2>
-      <img src="./img/getcoins.PNG" alt="" />
+      
       <p class="pt-3">
         Bu bir alt başlıktır. Lorem ipsum dolor sit amet, consectetur adipiscing
         elit. Sed auctor nunc vitae arcu iaculis, ac dictum sapien pellentesque.
@@ -91,7 +158,7 @@
         Integer volutpat nulla id facilisis sagittis. Maecenas porttitor enim ac
         felis molestie laoreet.
       </p>
-      <hr>
+      <hr />
       <h2>Başlık 2</h2>
       <p>
         Bu da bir alt başlıktır. Lorem ipsum dolor sit amet, consectetur
@@ -106,7 +173,7 @@
         Integer volutpat nulla id facilisis sagittis. Maecenas porttitor enim ac
         felis molestie laoreet.
       </p>
-      <hr>
+      <hr />
       <h2>Başlık 2</h2>
       <p>
         Bu da bir alt başlıktır. Lorem ipsum dolor sit amet, consectetur
@@ -121,7 +188,7 @@
         Integer volutpat nulla id facilisis sagittis. Maecenas porttitor enim ac
         felis molestie laoreet.
       </p>
-      <hr>
+      <hr />
       <h2>Başlık 2</h2>
       <p>
         Bu da bir alt başlıktır. Lorem ipsum dolor sit amet, consectetur
@@ -136,7 +203,7 @@
         Integer volutpat nulla id facilisis sagittis. Maecenas porttitor enim ac
         felis molestie laoreet.
       </p>
-      <hr>
+      <hr />
       <h2>Başlık 2</h2>
       <p>
         Bu da bir alt başlıktır. Lorem ipsum dolor sit amet, consectetur
@@ -151,7 +218,7 @@
         Integer volutpat nulla id facilisis sagittis. Maecenas porttitor enim ac
         felis molestie laoreet.
       </p>
-      <hr>
+      <hr />
       <h2>Başlık 2</h2>
       <p>
         Bu da bir alt başlıktır. Lorem ipsum dolor sit amet, consectetur
@@ -168,10 +235,11 @@
       </p>
     </div>
     <footer class="d-flex justify-content-center bg-dark">
-		<p class="text-white">Telif Hakkı &copy; 2023 </p>
-	</footer>
+      <p class="text-white">Telif Hakkı &copy; 2023</p>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>

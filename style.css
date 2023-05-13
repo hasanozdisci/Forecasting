@@ -10,3 +10,29 @@ p{
     color: #333;
     font-family: 'Wix Madefor Text', sans-serif;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    font-size: 1.3rem;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  pre{
+    font-size: 1.2rem;
+    width: 100%;
+    font-weight: 300;
+    line-height: 1.7rem;
+    background-color: #dfe3ec;
+    font-family: 'Wix Madefor Text', sans-serif;
+  }
