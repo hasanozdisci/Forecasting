@@ -53,14 +53,27 @@
     const dogeExhange = document.getElementById('doge-exchange');
     socketForDoge.onmessage = function (event) {
         const stockObject = JSON.parse(event.data);
-        dogePrice.innerHTML =  parseFloat(stockObject.p).toFixed(2);
+        dogePrice.innerHTML =  parseFloat(stockObject.p).toFixed(6);
         // doge coin exchange rate maybe wrong fix it
         dogeExhange.innerHTML = '<b>+' + parseFloat(stockObject.q).toFixed(2)+ '%';
         dogeExhange.style.color = lastPrice > stockObject.q ? 'red' : 'green';
         dogePrice.style.color = lastPrice > stockObject.p ? 'red' : 'green';
         lastPrice = stockObject.p;
     }
-
+// tether coin price
+    const socketForTether = new WebSocket('wss://stream.binance.com:9443/ws/tusdusdt@trade');
+    let lastPriceForTether = 0;
+    const tetherPrice = document.getElementById('tether-price');
+    const tetherExhange = document.getElementById('tether-exchange');
+    socketForTether.onmessage = function (event) {
+        const stockObject = JSON.parse(event.data);
+        tetherPrice.innerHTML =  parseFloat(stockObject.p).toFixed(6);
+        tetherExhange.innerHTML = '<b>+' + parseFloat(stockObject.q).toFixed(2)+ '%';
+        tetherExhange.style.color = lastPrice > stockObject.q ? 'red' : 'green';
+        tetherPrice.style.color = lastPrice > stockObject.p ? 'red' : 'green';
+        lastPrice = stockObject.p;
+    }
+    
 
 
 
