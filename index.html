@@ -30,32 +30,20 @@
       <h1 class="text-center">Kripto Para Borsasında Veri Analizi</h1>
       <div class="row mt-5">
         <div class="col-md-12">
-          <p>
-            Bu bir makale metnidir. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Sed auctor nunc vitae arcu iaculis, ac dictum
-            sapien pellentesque. Donec hendrerit ex et malesuada consectetur. In
-            eget malesuada turpis, ut interdum lorem. Duis suscipit convallis
-            risus, quis mollis velit rutrum vel. Nullam eu diam at quam maximus
-            pulvinar nec vel dolor. Sed luctus elementum enim ut ornare.
-            Suspendisse bibendum libero vel purus hendrerit, eget bibendum elit
-            vehicula. Sed convallis quis sapien sit amet vehicula. Duis
-            sollicitudin ante nec est vehicula rhoncus. Nullam vel libero ut
-            justo faucibus maximus vel vel magna. Integer volutpat nulla id
-            facilisis sagittis. Maecenas porttitor enim ac felis molestie
-            laoreet.
-          </p>
-
-          <p>
-            Maecenas vitae massa vel erat imperdiet cursus. Duis vel enim nec
-            magna scelerisque accumsan. In aliquet, turpis non bibendum
-            ultrices, lectus magna euismod odio, sed dignissim nulla purus eget
-            leo. Praesent varius vestibulum purus, vel efficitur dolor lobortis
-            id. Morbi et semper lectus. Nullam id tincidunt enim, vel hendrerit
-            mauris. Morbi euismod semper est at tempor. Vivamus vitae interdum
-            arcu, a lacinia tellus. Morbi vestibulum tell
-          </p>
+          <p>Bu çalışmada veriye dayalı karar alma mekanizmalarının doğru karar 
+            verme üzerindeki etkisi incelenmiştir. 
+            Binance'e ait verilere anlık erişim sağlamak için bir 
+            API kullanılmış ve bu verilerin analizi gerçekleştirilerek hem 
+            geçmişe yönelik hem de gelecek tahminleri yapılmıştır.
+            API yardımıyla elde edilen verilerin analizi, 
+            hem anlık durumu göstermek için kullanılmış 
+            hem de geçmiş verilere dayalı tahminlerin yapılmasına olanak sağlamıştır. 
+            Çalışmanın sonuçları, sitemizde sunulan analiz raporu aracılığıyla 
+            hem akademik hem de pratik alanda değerli bir kaynak sunmaktadır.</p>
           <br>
-          <h3>Popüler Kripto Para Birimleri ve Web Socket</h3>
+          <h3>Popüler Kripto Para Birimleri ve Anlık Verilere Erişim</h3>
+          <br>
+          <p>Binance API dökümantasyonu ve WebSocket kullanılarak, Binance'den anlık veriler sitemize getirildi. API anahtarlarıyla yetkilendirme yapıldı ve WebSocket bağlantısı kurularak belirli bir sembol için güncel fiyatlar, işlem hacmi ve sipariş defteri derinliği gibi veriler alındı. Bu veriler JavaScript veya diğer web teknolojileriyle işlendi.</p>
           <br>
           <table>
             <tr>
@@ -133,45 +121,33 @@
               lastPrice = stockObject.p;
           };
         </code>
-      </pre>
+      </pre> 
       <br>
       <br>
 
       <h2 class="d-flex justify-content-center">Veri Setinin Hazırlanması</h2>
       <br>
       <h3>Geçmiş Verilerin Elde Edilmesi</h3>
-      
-      <p class="pt-3">
-        Bu bir alt başlıktır. Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit. Sed auctor nunc vitae arcu iaculis, ac dictum sapien pellentesque.
-        Donec hendrerit ex et malesuada consectetur. In eget malesuada turpis,
-        ut interdum lorem. Duis suscipit convallis risus, quis mollis velit
-        rutrum vel. Nullam eu diam at quam maximus pulvinar nec vel dolor. Sed
-        luctus elementum enim ut ornare. Suspendisse bibendum libero vel purus
-        hendrerit, eget bibendum elit vehicula. Sed convallis quis sapien sit
-        amet vehicula. Duis sollicitudin ante nec est vehicula rhoncus. Nullam
-        vel libero ut justo faucibus maximus vel vel magna. Integer volutpat
-        nulla id facilisis sagittis. Maecenas porttitor enim ac felis molestie
-        laoreet.
+      <br>
+      <p>
+        Öncelikle, CoinAPI'ye bağlanmak için gerekli kütüphaneleri ve bağımlılıklar projeye eklendi. Ardından, API anahtarımı kullanarak API istemcisi oluşturuldu. Belirlenen başlangıç ve bitiş tarihleriyle birlikte istek URL'si oluşturuldu. Oluşturulan URL'yi kullanarak API'ye asenkron bir GET isteği gönderildi ve gelen yanıtı kontrol edildi. Eğer yanıt başarılı ise içeriği okuyarak JSON formatından Coin nesnelerine dönüştürüldü. Elde edilen verileri döngü kullanarak tek tek işleyip ve her bir nesne veritabanına eklendi.
       </p>
+      <img src="./img/getcoins.PNG" alt="">
+      <br>
+      <br>
       <br>
       <h3>Veri Setinin Oluşturulması</h3>
       <br>
       <p>
-        Bu da bir alt başlıktır. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Sed auctor nunc vitae arcu iaculis, ac dictum sapien
-        pellentesque. Donec hendrerit ex et malesuada consectetur. In eget
-        malesuada turpis, ut interdum lorem. Duis suscipit convallis risus, quis
-        mollis velit rutrum vel. Nullam eu diam at quam maximus pulvinar nec vel
-        dolor. Sed luctus elementum enim ut ornare. Suspendisse bibendum libero
-        vel purus hendrerit, eget bibendum elit vehicula. Sed convallis quis
-        sapien sit amet vehicula. Duis sollicitudin ante nec est vehicula
-        rhoncus. Nullam vel libero ut justo faucibus maximus vel vel magna.
-        Integer volutpat nulla id facilisis sagittis. Maecenas porttitor enim ac
-        felis molestie laoreet.
+        Belirlenen başlangıç ve bitiş tarihleri arasında, her bir veri başlığı için ilgili veriler veritabanına eklendi. Örneğin, "Open" başlığı altındaki açılış fiyatı, "High" başlığı altındaki en yüksek fiyat, "Low" başlığı altındaki en düşük fiyat, "Close" başlığı altındaki kapanış fiyatı gibi veriler ayrı ayrı kaydedildi. Aynı şekilde, "Volume" başlığı altındaki işlem hacmi ve "TradeCount" başlığı altındaki işlem sayısı gibi diğer veriler de veritabanına eklendi. Bu şekilde, her bir başlık için ilgili verilerin veritabanına kaydedilmesi sağlandı, böylece bu verilere erişim sağlanarak analiz yapılmasına olanak sağlandı.
       </p>
       <br>
+      <img src="./img/bitcoindata.PNG" alt="">
+      <br>
+      <br>
+      <br>
       <h3>Veri Setinin Temizlenmesi</h3>
+      <br>
       <p>
         Bu da bir alt başlıktır. Lorem ipsum dolor sit amet, consectetur
         adipiscing elit. Sed auctor nunc vitae arcu iaculis, ac dictum sapien

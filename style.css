@@ -32,10 +32,10 @@ table {
     background-color: #f9f9f9;
   }
   pre{
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 100%;
-    font-weight: 300;
-    line-height: 1.7rem;
+    font-weight: 200;
+    line-height: 1.4rem;
     background-color: #dfe3ec;
     font-family: 'Wix Madefor Text', sans-serif;
   }
