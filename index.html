@@ -37,13 +37,13 @@
             geçmişe yönelik hem de gelecek tahminleri yapılmıştır.
             API yardımıyla elde edilen verilerin analizi, 
             hem anlık durumu göstermek için kullanılmış 
-            hem de geçmiş verilere dayalı tahminlerin yapılmasına olanak sağlamıştır. 
+            hem de geçmiş verilere dayalı analizlerin yapılmasına olanak sağlamıştır. 
             Çalışmanın sonuçları, sitemizde sunulan analiz raporu aracılığıyla 
             hem akademik hem de pratik alanda değerli bir kaynak sunmaktadır.</p>
           <br>
           <h3>Popüler Kripto Para Birimleri ve Anlık Verilere Erişim</h3>
           <br>
-          <p>Binance API dökümantasyonu ve WebSocket kullanılarak, Binance'den anlık veriler sitemize getirildi. API anahtarlarıyla yetkilendirme yapıldı ve WebSocket bağlantısı kurularak belirli bir sembol için güncel fiyatlar, işlem hacmi ve sipariş defteri derinliği gibi veriler alındı. Bu veriler JavaScript veya diğer web teknolojileriyle işlendi.</p>
+          <p>Binance API dökümantasyonu ve WebSocket kullanılarak, Binance'den anlık veriler sitemize getirildi. API anahtarlarıyla yetkilendirme yapıldı ve WebSocket bağlantısı kurularak belirli bir sembol için güncel fiyatlar, işlem hacmi gibi veriler alındı. Bu veriler JavaScript veya diğer web teknolojileriyle işlendi.</p>
           <br>
           <table>
             <tr>
@@ -130,7 +130,7 @@
       <h3>Geçmiş Verilerin Elde Edilmesi</h3>
       <br>
       <p>
-        Öncelikle, CoinAPI'ye bağlanmak için gerekli kütüphaneleri ve bağımlılıklar projeye eklendi. Ardından, API anahtarımı kullanarak API istemcisi oluşturuldu. Belirlenen başlangıç ve bitiş tarihleriyle birlikte istek URL'si oluşturuldu. Oluşturulan URL'yi kullanarak API'ye asenkron bir GET isteği gönderildi ve gelen yanıtı kontrol edildi. Eğer yanıt başarılı ise içeriği okuyarak JSON formatından Coin nesnelerine dönüştürüldü. Elde edilen verileri döngü kullanarak tek tek işleyip ve her bir nesne veritabanına eklendi.
+        Öncelikle, CoinAPI'ye bağlanmak için gerekli kütüphaneleri ve bağımlılıklar projeye eklendi. Ardından, API anahtarımı kullanarak API istemcisi oluşturuldu. Belirlenen başlangıç ve bitiş tarihleriyle birlikte istek URL'si oluşturuldu. Oluşturulan URL'yi kullanarak API'ye asenkron bir GET isteği gönderildi ve gelen yanıtı kontrol edildi. Eğer yanıt başarılı ise içeriği okuyarak JSON formatından Coin nesnelerine dönüştürüldü. Elde edilen verileri döngü kullanarak tek tek işleyip her bir nesne veritabanına eklendi.
       </p>
       <img src="./img/getcoins.PNG" alt="">
       <br>
